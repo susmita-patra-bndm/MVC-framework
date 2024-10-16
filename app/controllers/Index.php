@@ -15,8 +15,11 @@ class Index extends DController{
         $data['allPost'] = $PostModel->getAllPost($table);
         $this->load->view("content", $data);
 
-        
         $this->load->view("sidebar");
+        
+    }
+
+    public function postDetails(){
         
     }
 }

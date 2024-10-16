@@ -62,6 +62,8 @@ class Category extends DController{
 
     public function updateCat(){
         $table = "category";
+
+        
         $id  =  $_POST['id'];
         $name  =  $_POST['name'];
         $title  =  $_POST['title'];
