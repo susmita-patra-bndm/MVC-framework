@@ -19,8 +19,21 @@ class Index extends DController{
         
     }
 
-    public function postDetails(){
-        
+    public function postDetails($id){
+        $this->load->view("header");
+
+        $data = array();
+        $tablePost = "post";
+        $tableCat = "category";
+        $PostModel = $this->load->model("PostModel");
+        $data['postbyid'] = $PostModel->getPostById($tablePost, $tableCat, $id );
+
+        $this->load->view("details", $data);
+        $this->load->view("sidebar");
+    }
+
+    public function postBycat(){
+
     }
 }
 ?>

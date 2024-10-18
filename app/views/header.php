@@ -12,5 +12,13 @@
 .widget ul li{}
 .widget ul li a{background: #3399ff none repeat scroll 0 0;color: #fff;display: block;margin-bottom: 1px;padding: 5px;text-decoration: none; }
 .widget ul li a:hover{background: #5ec4ff;}
+
+.details{}
+.title{border-bottom: 1px dashed #ddd;}
+.title h2{margin: 0;}
+.title p{margin: 0; padding: 5px 0;}
+.desc{}
+.desc p{line-height: 24px; text-align: justify;}
+
 </style>
 <div class="content">
