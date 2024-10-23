@@ -11,11 +11,16 @@ class Index extends DController{
 
         $data = array();
         $table = "post";
-        $PostModel = $this->load->model("PostModel");
-        $data['allPost'] = $PostModel->getAllPost($table);
+        $postModel = $this->load->model("PostModel");
+        $data['allPost'] = $postModel->getAllPost($table);
         $this->load->view("content", $data);
 
-        $this->load->view("sidebar");
+        $tableCat = "category";
+        $catModel = $this->load->model("CatModel");
+        $data['catlist'] = $catModel->catList($tableCat);
+        $data['latestPost'] = $postModel->getlatestPost($table);
+
+        $this->load->view("sidebar", $data);
         
     }
 
@@ -25,15 +30,31 @@ class Index extends DController{
         $data = array();
         $tablePost = "post";
         $tableCat = "category";
-        $PostModel = $this->load->model("PostModel");
-        $data['postbyid'] = $PostModel->getPostById($tablePost, $tableCat, $id );
 
+        $postModel = $this->load->model("PostModel");
+        $data['postbyid'] = $postModel->getPostById($tablePost, $tableCat, $id );
         $this->load->view("details", $data);
+
+        $tableCat = "category";
+        $catModel = $this->load->model("CatModel");
+        $data['catlist'] = $catModel->catList($tableCat);
+        $data['latestPost'] = $postModel->getlatestPost($tablePost);
+
+        $this->load->view("sidebar", $data);
         $this->load->view("sidebar");
     }
 
-    public function postBycat(){
+    public function postByCat($id){
+        $this->load->view("header");
 
+        $data = array();
+        $tablePost = "post";
+        $tableCat = "category";
+
+        $postModel = $this->load->model("PostModel");
+        $data['getCat'] = $postModel->getPostBycat($tablePost, $tableCat, $id );
+        $this->load->view("postbycat", $data);
+        $this->load->view("sidebar");
     }
 }
 ?>

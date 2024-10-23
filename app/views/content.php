@@ -1,30 +1,29 @@
 
-    Home</hr>
-    <article class="postcontent">
-
-    <?php
+Home</hr>
+<article class="postcontent">
+<?php
     foreach ($allPost as $key => $value){
-    ?>
-        <div class="post">
-            <h2><a href="<?php echo BASE_URL; ?>/Index/postDetails/
-            <?php echo $value['id']; ?>"><?php echo $value['title']; ?></a></h2>
+?>
+    <div class="post">
+        <h2><a href="<?php echo BASE_URL; ?>/Index/postDetails/
+        <?php echo $value['id']; ?>"><?php echo $value['title']; ?></a></h2>
 
-            <p><?php
+        <p><?php
+        
+        $text = $value['content']; 
+        if (strlen($text) > 200) {
+        $text = substr($text , 0 , 200);
+            echo $text;
+        }
             
-            $text = $value['content']; 
-            if (strlen($text) > 200) {
-                $text = substr($text , 0 , 200);
-                echo $text;
-            }
-            
-            ?></p>
+        ?></p>
 
-            <div class="readmore">
-                <a href="<?php echo BASE_URL; ?>/Index/postDetails/<?php echo $value['id'];?>">Read More...</a></div>
+        <div class="readmore">
+            <a href="<?php echo BASE_URL; ?>/Index/postDetails/<?php echo $value['id'];?>">Read More...</a></div>
         </div>
-    <?php } ?>
+<?php } ?>
 
-    </article>
+</article>
 
 
 
